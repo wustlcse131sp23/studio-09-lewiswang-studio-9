@@ -2,6 +2,7 @@ package studio9;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import support.cse131.NotYetImplementedException;
@@ -19,9 +20,25 @@ public class NameToHeight {
 	 */
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
+		
+		Map<String, Integer> studioGroup = new HashMap<>();
+		
+		studioGroup.put("Tom", 170);
+		studioGroup.put("Wyatt", 177);
 
-		// FIXME
-		throw new NotYetImplementedException();
-
+	    while (true) {
+	    	System.out.print("Enter a name: ");
+	        String name = in.nextLine();
+	        if (name.equals("quit")) {
+	        	break;
+	        }
+	        Integer height = studioGroup.get(name);
+	        if (height != null) {
+	        	System.out.println(name + " is " + height + " cm tall.");
+	        } 
+	        else {
+	        	System.out.println("Height not known of " + name + ".");
+	        }
+	   }
 	}
 }
